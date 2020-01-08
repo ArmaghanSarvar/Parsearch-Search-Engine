@@ -4,7 +4,6 @@ Implementation of a news search engine using the concepts of the Information Ret
 
 ### A Persian search engine with:
 
-* Text Formatter
 * Normalizer
 * Tokenizer
 * Language Swapper
