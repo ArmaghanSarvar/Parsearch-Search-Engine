@@ -1,0 +1,139 @@
+@font-face {
+font-family: Vazir;
+src: url('Vazir.eot');
+src: url('Vazir.eot?#iefix') format('embedded-opentype'),
+url('Vazir.woff') format('woff'),
+url('Vazir.ttf') format('truetype');
+font-weight: normal;
+}
+
+header, footer{
+  background-color: #E0FFFF
+}
+#time{
+  float: left;
+  margin-left: 10;
+  margin-top: 5%;
+}
+
+#timer{
+  float: left;
+}
+#cont{
+float: left;
+}
+body{
+  font-family: Vazir;
+}
+h1,h2 {
+  font-family: Vazir;
+  font-weight: 500;
+  font-size: 30px;
+  margin-top: 5%;
+  margin-right: 5px;
+  float: right;
+}
+/* h5, p{
+    float: right;
+} */
+#header-img{
+  float: right;
+  /* margin-right: 30px; */
+}
+#fullLogo{
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 4%;
+}
+.content-wrap{
+  padding: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: auto;
+  }
+.input{
+  border-radius: 25px;
+  border: 3px solid;
+  padding: 10px;
+  width: 50%;
+  height: 25px;
+  text-align-right:left;
+  margin-right: 25%;
+  margin-top: 5%;
+}
+
+.center{
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+.button{
+  font-family: Vazir;
+  background-color: white;
+  font-size: 15px;
+  display: inline-block;
+  width: 20%;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+}
+.button1{
+  font-family : inherit;
+  background-color: white;
+  margin-top: 1%;
+  margin-right: 30%;
+}
+.button2{
+  font-family : inherit;
+  background-color: white;
+}
+.button1:hover{
+  background-color: #008CBA;
+  color: white;
+}
+.button2:hover{
+  background-color: #008CBA;
+  color: white;
+}
+
+#header_bar{
+    cursor: pointer;
+}
+
+#paginationDiv{
+    text-align: center;
+}
+
+#paginationDiv form{
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+}
+
+.pagination {
+  float: right;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.paginationActive {
+  padding: 8px 16px;
+  float: right;
+  text-decoration: none;
+  background-color: #00CED1;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination:hover {
+  color: white;
+  background-color: #5FAACE;
+  border-radius: 5px;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+	text-align: justify;
+    text-justify: inter-word;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa" style="font-size: 17px;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>پارسرچ | خبر</title>
+
+<link href="/static/_css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="wrapper">
+  <div id="mainContent">
+    <img src="{{ news.thumbnail }}" alt="news image" id="news_thumbnail">
+    <h1>{{ news.title | safe }}</h1>
+    <br>
+    <p> {{ news.content | safe }} </p>
+    <div id="spotlight">
+      <p>{{ news.abstract | safe }} <a href="http://{{ news.source | safe }}" title="Explore The page" class="accent">{{ news.source | safe }}</a></p>
+    </div>
+    {% if news.keywords != "" %}
+      <p style="text-align: right;">کلمات کلیدی:</p>
+      <div> {{ news.keywords }} </div>
+    {% endif %}
+  </div>
+
+  <div id="footer">
+  <div id="footerBody">
+  <div id="footerMidCol">
+      <h3><a href="index.html">بازگشت به صفحه اصلی</a></h3>
+      <p>برای جستجوی مجدد کلیک کنید</p>
+      <h3><a href="mailto:info@parsearch.com">ارتباط با ما</a></h3>
+      <p>تا دریافت پاسخ یک قدم فاصله دارید</p>
+    </div>
+    <div id="footerRightCol">
+      <h1>پارسرچ</h1>
+      <p>جستجوی هوشمند اخبار
+    </div>
+</div>
+  </div>
+</div>
+</body>
+</html>

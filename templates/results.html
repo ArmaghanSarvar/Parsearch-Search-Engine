@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html html dir="rtl" lang="fa" style="font-size: 17px;">
+
+<head>
+    <meta charset="UTF-8">
+    <title>پارسرچ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/_css/styles.css">
+
+</head>
+<body class="text-right">
+  <header id="header_bar" onclick="location.href='index.html'">
+    <div class="content-wrap">
+      <img id="header-img" src="/static/_images/logo.png" alt="Header" height="100px" >
+      <h1><b>نتایج جستجو در پارسرچ</b></h1>
+      <img id="timer" src="/static/_images/time.png" alt="timer" height="90px" >
+      <div id='time'></div>
+    </div>
+  </header>
+
+
+  {% if forEndIndex == 0 %}
+    <div class="text-center" style="text-align: center; font-family: Vazir,serif;
+    font-weight: 500;
+    font-size: 40px;
+    margin-top: 3%;
+    color: #008CBA">نتیجه ای یافت نشد!</div>
+  {% else %}
+  <br>
+  <div class="dropdown text-center">
+    <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">جستجو بر اساس
+        <span class="caret"></span>
+    </button>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <form method="POST">
+            <input name="idBox" value="sort_time" type="hidden">
+            <button class="dropdown-item text-center" type="submit">زمان انتشار</button>
+        </form>
+        <form method="POST">
+            <input name="idBox" value="sort_rel" type="hidden">
+            <button class="dropdown-item text-center" type="submit">میزان ارتباط</button>
+        </form>
+    </div>
+   </div>
+  {% endif %}
+
+
+  {% for i in range((pageNumber - 1) * resultsPerPage, forEndIndex) %}
+  <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+          <br>
+          <div class="card">
+              <div class="card-header">{{ newsList[i].title }}</div>
+              <div class="card-body">
+                  <a href="{{ newsList[i].thumbnail }}">
+                      <img class="rounded float-right mx-3" width="23%" height="20%" src="{{ newsList[i].thumbnail }}" alt="Card image cap">
+                  </a>
+                  <h5 class="card-title">
+                      <a href="http://{{ newsList[i].source }}">
+                          {{ newsList[i].source }}
+                      </a>
+                      <span class="badge badge-warning">{{ newsList[i].time }}</span>
+                  </h5>
+                  <p class="card-text">{{ newsList[i].abstract | safe }}</p>
+                  <form method="POST">
+                      <input type="hidden" name="idBox" value="{{ newsList[i].id }}">
+                      <button id="cont" class="btn btn-primary" type="submit">ادامه مطلب</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-2"></div>
+  </div>
+  {% endfor %}
+<br>
+
+<script src="/static/js.js"></script>
+
+{% if forEndIndex != 0 %}
+    <div id="paginationDiv">
+        <form method="POST" id="forrrm">
+          <input name="idBox" type="hidden" value="p{{ pageNumber - 1 }}">
+          <button type="submit" class="pagination">قبلی</button>
+        </form>
+
+        {% for i in range(pageBegin, pageEnd + 1) %}
+            {% if i != pageNumber %}
+                <form method="POST">
+                    <input name="idBox" type="hidden" value="p{{ i }}">
+                    <button type="submit" class="pagination">{{ i }}</button>
+                </form>
+            {% else %}
+                <form>
+                    <button class="paginationActive" disabled>{{ i }}</button>
+                </form>
+            {% endif %}
+        {% endfor %}
+
+        <form method="POST">
+          <input name="idBox" type="hidden" value="p{{ pageNumber + 1 }}">
+          <button type="submit" class="pagination">بعدی</button>
+        </form>
+    </div>
+{% endif %}
+
+<br>
+<br>
+<br>
+</body>
