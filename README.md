@@ -1,5 +1,5 @@
 # Parsearch-Search-Engine
-## Implementation of a news search engine using the concepts of the Information Retrieval course
+### Implementation of a news search engine using the concepts of the Information Retrieval course
 
 
 ### A Persian search engine with:
