@@ -8,7 +8,7 @@ Implementation of a news search engine using the concepts of the Information Ret
 * Tokenizer
 * Language Swapper
 * Stemmer
-* Ranked-Based and Boolean Search
+* Ranked-Based and Boolean-Based Search
 * Phrase Queries
 * Crawling
 * Clustering
